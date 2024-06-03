@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	prompt "github.com/elk-language/go-prompt"
-	pstrings "github.com/elk-language/go-prompt/strings"
+	prompt "github.com/irworks/go-prompt"
+	pstrings "github.com/irworks/go-prompt/strings"
 )
 
 func executor(in string) {

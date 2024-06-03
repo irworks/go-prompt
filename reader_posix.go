@@ -7,7 +7,7 @@ import (
 	"os"
 	"syscall"
 
-	"github.com/elk-language/go-prompt/term"
+	"github.com/irworks/go-prompt/term"
 	"golang.org/x/sys/unix"
 )
 
