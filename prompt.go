@@ -516,6 +516,9 @@ func (p *Prompt) readBuffer(bufCh chan []byte, stopCh chan struct{}) {
 				newBytes := make([]byte, 0, len(bytes))
 				for _, byt := range bytes {
 					switch byt {
+					// fix for { | } ~ chars on Windows
+					case 27:
+						break
 					// translate raw mode \r into \n
 					// to make pasting multiline text
 					// work properly
