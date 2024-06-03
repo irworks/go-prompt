@@ -5,7 +5,7 @@
 [![GoDoc](https://godoc.org/github.com/elk-language/go-prompt?status.svg)](https://godoc.org/github.com/elk-language/go-prompt)
 ![tests](https://github.com/elk-language/go-prompt/workflows/tests/badge.svg)
 
-This is a fork of [c-bata/go-prompt](https://github.com/c-bata/go-prompt).
+This is a fork of [elk-language/go-prompt](https://github.com/elk-language/go-prompt) which is a fork of [c-bata/go-prompt](https://github.com/c-bata/go-prompt).
 It's a great library but it's been abandoned
 for quite a while.
 This project aims to continue its development.
