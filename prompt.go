@@ -512,7 +512,7 @@ func (p *Prompt) readBuffer(bufCh chan []byte, stopCh chan struct{}) {
 			// fix for { | } ~ chars on Windows
 			if len(bytes) == 2 && bytes[0] == 27 && bytes[1] >= 123 && bytes[1] <= 126 {
 				newBytes := make([]byte, 0, 1)
-				newBytes = append(newBytes, bytes[0])
+				newBytes = append(newBytes, bytes[1])
 				bufCh <- newBytes
 			} else if len(bytes) == 1 && bytes[0] == '\t' {
 				// if only a single Tab key has been pressed
