@@ -508,7 +508,13 @@ func (p *Prompt) readBuffer(bufCh chan []byte, stopCh chan struct{}) {
 			}
 			bytes = bytes[:n]
 			// Log("%#v", bytes)
-			if len(bytes) == 1 && bytes[0] == '\t' {
+
+			// fix for { | } ~ chars on Windows
+			if len(bytes) == 2 && bytes[0] == 27 && bytes[1] >= 123 && bytes[1] <= 126 {
+				newBytes := make([]byte, 0, 1)
+				newBytes = append(newBytes, bytes[0])
+				bufCh <- newBytes
+			} else if len(bytes) == 1 && bytes[0] == '\t' {
 				// if only a single Tab key has been pressed
 				// handle it as a keybind
 				bufCh <- bytes
@@ -516,9 +522,6 @@ func (p *Prompt) readBuffer(bufCh chan []byte, stopCh chan struct{}) {
 				newBytes := make([]byte, 0, len(bytes))
 				for _, byt := range bytes {
 					switch byt {
-					// fix for { | } ~ chars on Windows
-					case 27:
-						break
 					// translate raw mode \r into \n
 					// to make pasting multiline text
 					// work properly
